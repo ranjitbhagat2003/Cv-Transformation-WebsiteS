@@ -1,5 +1,3 @@
-// script.js
-
 // Initialize AOS
 AOS.init({
     once: true,
@@ -71,8 +69,8 @@ window.addEventListener('scroll', () => {
 // Scroll to top
 document.getElementById('scrollTop').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
 });
+
 // Refresh AOS after page load
 window.addEventListener("load", () => {
     AOS.refresh();
@@ -99,4 +97,4 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
         return;
     }
     alert(`Thank you! You selected ${selected.value}. A coach will contact you soon. (demo)`);
-}); 
+});

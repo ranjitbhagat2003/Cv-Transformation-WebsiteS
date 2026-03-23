@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>CV TRANSFORMATION · your fitness your victory</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Fixed Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="IMAGES/logo.png" alt="CV Logo">
+                <div class="logo-text">
+                    <span class="brand">CV TRANSFORMATION</span>
+                    <span class="tagline">elite online fitness</span>
+                </div>
+            </div>
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#transformation">Transformation</a></li>
+                <li><a href="#trainers">Trainers</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- <li class="instagram-badge"><a href="https://instagram.com/cv_transformation" target="_blank"><i class="fab fa-instagram"></i> @cv_transformation</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content" data-aos="fade-up">
+            <h1>YOUR FITNESS <span>YOUR VICTORY</span></h1>
+            <p>Get results with our fitness programs. We offer a variety of classes, personal training, and nutrition plans to help you achieve your goals.</p>
+            <a href="#classes" class="btn">View all classes</a>
+        </div>
+    </section>
+
+    <!-- Stats Section (25K+) -->
+    <section id="stats">
+        <div class="container">
+            <h2 data-aos="fade-right">Our Achievements</h2>
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="zoom-in">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Core Strength</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Workouts Done</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BMI Calculator -->
+    <section id="bmi">
+        <div class="container">
+            <h2 data-aos="fade-right">Calculate Your BMI Now</h2>
+            <div class="bmi-card" data-aos="zoom-in">
+                <div class="bmi-input-group">
+                    <label>Height (cm)</label>
+                    <input type="number" id="height" placeholder="e.g., 175">
+                </div>
+                <div class="bmi-input-group">
+                    <label>Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="e.g., 70">
+                </div>
+                <button class="btn" id="calculateBmi">Calculate BMI</button>
+                <div class="bmi-result" id="bmiResult">Your BMI: <span>--</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-content" data-aos="fade-right">
+                    <h3>WHY CHOOSE US</h3>
+                    <p>We are pushing the limit of your core strength with science-based training and nutrition.</p>
+                    <ul class="why-list">
+                        <li><i class="fas fa-check-circle"></i> Expert trainers with 8+ years experience</li>
+                        <li><i class="fas fa-check-circle"></i> Personalized plans for fat loss & muscle gain</li>
+                        <li><i class="fas fa-check-circle"></i> Flexible online coaching</li>
+                        <li><i class="fas fa-check-circle"></i> 25K+ transformations</li>
+                    </ul>
+                </div>
+                <div class="why-image" data-aos="fade-left">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="about">
+        <div class="container">
+            <div class="experience-grid">
+                <div class="experience-content" data-aos="fade-right">
+                    <h3>We Have Lot Of Experience Gym Training</h3>
+                    <p>Many individuals have been trained by professionals in the gym industry for years. They have achieved great success in their fitness journey.</p>
+                    <ul class="experience-list">
+                        <li><i class="fas fa-check-circle"></i> Over 15 years of experience</li>
+                        <li><i class="fas fa-check-circle"></i> Certified Trainers</li>
+                        <li><i class="fas fa-check-circle"></i> Exceptional work quality</li>
+                    </ul>
+                    <a href="#contact" class="btn">GET STARTED</a>
+                </div>
+                <div class="experience-image" data-aos="fade-left">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Easy Steps -->
+    <section id="steps">
+        <div class="container">
+            <h2 data-aos="fade-right">Easy Step To Achieve Your Goals.</h2>
+            <div class="steps-grid">
+                <div class="step-card" data-aos="flip-left">
+                    <h3>Gym Movement</h3>
+                    <p>Many gyms offer tools and resources to track progress, such as heart rate monitors, workout logs, and more.</p>
+                </div>
+                <div class="step-card" data-aos="flip-left" data-aos-delay="100">
+                    <h3>Fitness Practice</h3>
+                    <p>Gyms are equipped to provide personalized workouts tailored to your needs.</p>
+                </div>
+                <div class="step-card" data-aos="flip-left" data-aos-delay="200">
+                    <h3>Achievement</h3>
+                    <p>Group fitness classes led by instructors who motivate and inspire.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gym Fitness Classes -->
+    <section id="classes">
+        <div class="container">
+            <h2 data-aos="fade-right">Our Gym Fitness Classes</h2>
+            <div class="classes-grid">
+                <div class="class-card" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop" alt="Class">
+                    <div class="class-info">
+                        <h4>Strength Training</h4>
+                        <p>Build muscle and power</p>
+                    </div>
+                </div>
+                <div class="class-card" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" alt="Class">
+                    <div class="class-info">
+                        <h4>HIIT Cardio</h4>
+                        <p>Burn fat fast</p>
+                    </div>
+                </div>
+                <div class="class-card" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&h=300&fit=crop" alt="Class">
+                    <div class="class-info">
+                        <h4>Yoga & Flexibility</h4>
+                        <p>Mind and body balance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Class Timetable -->
+    <section id="timetable">
+        <div class="container">
+            <h2 data-aos="fade-right">Class Timetable</h2>
+            <div class="timetable" data-aos="zoom-in">
+                <table>
+                    <tr>
+                        <th>Day</th>
+                        <th>Morning</th>
+                        <th>Evening</th>
+                    </tr>
+
+
+                    <tr>
+                        <td>Monday</td>
+                        <td>Core Strength</td>
+                        <td>HIIT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>Core Strength</td>
+                        <td>HIIT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>Muscle Building</td>
+                        <td>Yoga</td>
+                    </tr>
+
+                    <tr>
+                        <td>Thursday</td>
+                        <td>Muscle Building</td>
+                        <td>Yoga</td>
+                    </tr>
+
+                    <tr>
+                        <td>Friday</td>
+                        <td>Fat Loss</td>
+                        <td>Strength</td>
+                    </tr>
+
+                    <tr>
+                        <td>Saturday</td>
+                        <td>Group Training</td>
+                        <td>Cardio</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sunday</td>
+                        <td colspan="2">Holiday</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Push Limit Banner -->
+    <section class="push-limit">
+        <div class="container">
+            <h2 data-aos="fade-up">WE ARE PUSHING THE LIMIT OF YOUR <span>CORE STRENGTH</span></h2>
+        </div>
+    </section>
+
+    <!-- Transformation Section -->
+    <section id="transformation">
+        <div class="container">
+            <h2 data-aos="fade-right">Real Transformations</h2>
+            <div class="transform-horizontal">
+                <div class="transform-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="ba-images">
+                        <div class="before"><img src="IMAGES/1b.jpeg" alt="before"></div>
+                        <div class="after"><img src="IMAGES/1a.jpeg" alt="after"></div>
+                    </div>
+                    <div class="transform-info">
+                        <p>Lost 18 kg in 4 months · strength + cardio</p>
+                    </div>
+                </div>
+                <div class="transform-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="ba-images">
+                        <div class="before"><img src="IMAGES/2b.jpeg" alt="before"></div>
+                        <div class="after"><img src="IMAGES/2a.jpeg" alt="after"></div>
+                    </div>
+                    <div class="transform-info">
+                        <p>12 kg fat loss · belly reduction visible</p>
+                    </div>
+                </div>
+                <div class="transform-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="ba-images">
+                        <div class="before"><img src="IMAGES/3b.jpeg" alt="before"></div>
+                        <div class="after"><img src="IMAGES/3a.jpeg" alt="after"></div>
+                    </div>
+                    <div class="transform-info">
+                        <p>Gained 8 kg lean muscle · 6 months</p>
+                    </div>
+                </div>
+                <div class="transform-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="ba-images">
+                        <div class="before"><img src="IMAGES/4b.jpeg" alt="before"></div>
+                        <div class="after"><img src="IMAGES/4a.jpeg" alt="after"></div>
+                    </div>
+                    <div class="transform-info">
+                        <p>Post pregnancy · 15 kg transformation</p>
+                    </div>
+                </div>
+                <div class="transform-card" data-aos="fade-up" data-aos-delay="450">
+                    <div class="ba-images">
+                        <div class="before"><img src="IMAGES/5b.jpeg" alt="before"></div>
+                        <div class="after"><img src="IMAGES/5a.jpeg" alt="after"></div>
+                    </div>
+                    <div class="transform-info">
+                        <p>10 kg muscle gain · 5 months</p>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: right; color: #aaa; margin-top: 5px;"><i class="fas fa-arrow-left"></i> swipe / scroll <i class="fas fa-arrow-right"></i></p>
+        </div>
+    </section>
+
+    <!-- Meet Our Expert Fitness Trainers -->
+    <section id="trainers">
+        <div class="container">
+            <h2 data-aos="fade-right">MEET OUR EXPERT FITNESS TRAINERS</h2>
+            <div class="trainers-grid">
+                <div class="trainer-card" data-aos="flip-left">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=400&fit=crop" alt="Trainer">
+                    <div class="trainer-info">
+                        <h4>Coach Vrushabh</h4>
+                        <p>Head Coach · 8+ years</p>
+                    </div>
+                </div>
+                <div class="trainer-card" data-aos="flip-left" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&h=400&fit=crop" alt="Trainer">
+                    <div class="trainer-info">
+                        <h4>Coach Priya</h4>
+                        <p>Nutrition Specialist</p>
+                    </div>
+                </div>
+                <div class="trainer-card" data-aos="flip-left" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop" alt="Trainer">
+                    <div class="trainer-info">
+                        <h4>Coach Arjun</h4>
+                        <p>Strength Expert</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 data-aos="fade-right">CLIENTS TESTIMONIAL</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <i class="fas fa-quote-left"></i>
+                    <p>Lost 18 kg in 4 months with CV Transformation. The trainers are amazing!</p>
+                    <div class="client-name">- Rahul S.</div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-quote-left"></i>
+                    <p>Post pregnancy transformation was smooth. Gained my confidence back.</p>
+                    <div class="client-name">- Neha P.</div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-quote-left"></i>
+                    <p>Best online coaching for muscle gain. Highly recommended!</p>
+                    <div class="client-name">- Vikram P.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section id="pricing">
+        <div class="container">
+            <h2 data-aos="fade-right">CHOOSE PRICING PLANS THAT SUITS YOU</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card" data-aos="zoom-in">
+                    <h3>Online Training</h3>
+                    <div class="price">₹2499</div>
+                    <ul>
+                        <li>Customized workout</li>
+                        <li>Diet guidance</li>
+                        <li>Weekly tracking</li>
+                    </ul>
+                    <a href="#contact" class="btn">Select</a>
+                </div>
+                <div class="pricing-card" data-aos="zoom-in" data-aos-delay="100">
+                    <h3>Group Training</h3>
+                    <div class="price">₹2999</div>
+                    <ul>
+                        <li>Small group sessions</li>
+                        <li>Shared accountability</li>
+                        <li>Nutrition tips</li>
+                    </ul>
+                    <a href="#contact" class="btn">Select</a>
+                </div>
+                <div class="pricing-card" data-aos="zoom-in" data-aos-delay="200">
+                    <h3>Personal Training</h3>
+                    <div class="price">₹4999</div>
+                    <ul>
+                        <li>1-on-1 coaching</li>
+                        <li>Daily follow-ups</li>
+                        <li>Complete diet plan</li>
+                    </ul>
+                    <a href="#contact" class="btn">Select</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 data-aos="fade-right">Start your journey</h2>
+            <div class="contact-form" data-aos="zoom-in-up">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="form-group">
+                            <textarea placeholder="Your message (goals, questions...)"></textarea>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Send Message <i class="fas fa-arrow-right"></i></button>
+                </form>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>CV TRANSFORMATION</span>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <!--<a href="https://instagram.com/cv_transformation" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>-->
+                    <a href="https://instagram.com/ranjit.kushwaha" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/ranjit-bhagat-524b0a333" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 CV TRANSFORMATION. All rights reserved. | Built with <i class="fas fa-heart" style="color: #00C851;"></i> for fitness</p>
+                <p style="margin-top: 5px; font-size: 0.8rem;">Developed by R@njit Bhagat</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top -->
+    <div class="scroll-top" id="scrollTop"><i class="fas fa-chevron-up"></i></div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- External JavaScript -->
+    <script src="js/script.js" defer></script>
+</body>
+
+</html>

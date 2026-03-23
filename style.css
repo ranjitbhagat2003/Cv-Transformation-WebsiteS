@@ -1,4 +1,4 @@
-/* style.css - Fixed Navigation (fully visible on mobile from start) */
+/* style.css - Fixed Navigation */
 
 * {
     margin: 0;
@@ -83,7 +83,9 @@ h2:after {
     box-shadow: 0 15px 30px rgba(0, 200, 81, 0.5);
 }
 
+
 /* ========== FIXED HEADER ========== */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -104,7 +106,9 @@ h2:after {
     justify-content: space-between;
 }
 
+
 /* Logo refined */
+
 .logo {
     display: flex;
     align-items: center;
@@ -150,11 +154,14 @@ h2:after {
     text-transform: uppercase;
 }
 
+
 /* Navigation menu - centered */
+
 .nav-menu {
     display: flex;
     align-items: center;
     gap: 15px;
+    /* pehle 30px tha */
     list-style: none;
     margin-left: auto;
 }
@@ -192,7 +199,9 @@ h2:after {
     width: 100%;
 }
 
+
 /* Instagram badge refined - stays on right */
+
 .instagram-badge {
     background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
     padding: 8px 20px;
@@ -226,7 +235,9 @@ h2:after {
     color: white;
 }
 
+
 /* Hamburger */
+
 .hamburger {
     display: none;
     font-size: 2.5rem;
@@ -242,7 +253,12 @@ h2:after {
     color: var(--green);
 }
 
+
+/* ================================== */
+
+
 /* Add spacing for fixed header */
+
 .hero {
     margin-top: 80px;
     min-height: calc(90vh - 80px);
@@ -276,7 +292,9 @@ h2:after {
     color: #ddd;
 }
 
+
 /* Stats Section */
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -311,7 +329,9 @@ h2:after {
     color: #ccc;
 }
 
+
 /* BMI Calculator */
+
 .bmi-card {
     background: var(--bg-card);
     border-radius: 24px;
@@ -357,7 +377,9 @@ h2:after {
     color: var(--green);
 }
 
+
 /* Why Choose Us */
+
 .why-grid {
     display: flex;
     flex-wrap: wrap;
@@ -402,7 +424,9 @@ h2:after {
     opacity: 0.2;
 }
 
+
 /* Experience section */
+
 .experience-grid {
     display: flex;
     flex-wrap: wrap;
@@ -448,7 +472,9 @@ h2:after {
     opacity: 0.2;
 }
 
+
 /* Easy steps */
+
 .steps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -469,7 +495,9 @@ h2:after {
     color: var(--green);
 }
 
+
 /* Gym fitness classes */
+
 .classes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -504,7 +532,9 @@ h2:after {
     margin-bottom: 5px;
 }
 
+
 /* Timetable */
+
 .timetable {
     background: var(--bg-card);
     border-radius: 24px;
@@ -536,7 +566,9 @@ h2:after {
     color: var(--green);
 }
 
+
 /* Push limit */
+
 .push-limit {
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1350') center/cover fixed;
     padding: 5rem 0;
@@ -552,7 +584,9 @@ h2:after {
     color: var(--green);
 }
 
+
 /* Transformation horizontal */
+
 .transform-horizontal {
     display: flex;
     gap: 1.5rem;
@@ -646,7 +680,9 @@ h2:after {
     padding: 1.2rem;
 }
 
+
 /* Trainers grid */
+
 .trainers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -683,7 +719,9 @@ h2:after {
     margin-bottom: 5px;
 }
 
+
 /* Testimonials */
+
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -713,7 +751,9 @@ h2:after {
     color: var(--green);
 }
 
+
 /* Pricing */
+
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -760,7 +800,9 @@ h2:after {
     background: var(--green);
 }
 
+
 /* Contact form */
+
 .contact-form {
     background: var(--bg-card);
     padding: 3rem;
@@ -839,7 +881,9 @@ h2:after {
     font-weight: 600;
 }
 
+
 /* Footer */
+
 footer {
     background: #000;
     padding: 3rem 0 2rem;
@@ -895,7 +939,9 @@ footer {
     font-size: 0.9rem;
 }
 
+
 /* scroll top */
+
 .scroll-top {
     position: fixed;
     bottom: 30px;
@@ -927,7 +973,9 @@ footer {
     transform: translateY(-5px);
 }
 
-/* ========== MOBILE ADJUSTMENTS (FIX: navbar visible from start) ========== */
+
+/* ========== MOBILE ADJUSTMENTS ========== */
+
 @media (max-width: 992px) {
     .nav-menu {
         gap: 1.2rem;
@@ -938,26 +986,9 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* FIX: Force navbar to be fully visible from the start on mobile */
     .navbar {
-        transform: none !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        top: 0 !important;
-        background: rgba(10, 10, 10, 0.98) !important;
-        z-index: 1000 !important;
+        padding: 10px 0;
     }
-
-    /* Ensure hamburger is visible and clickable */
-    .hamburger {
-        display: block !important;
-        font-size: 2rem;
-        color: white;
-        cursor: pointer;
-        z-index: 1002;
-    }
-
-    /* Logo adjustments for small screens */
     .logo-text .brand {
         font-size: 1.4rem;
     }
@@ -968,8 +999,10 @@ footer {
     .logo-text .tagline {
         font-size: 0.65rem;
     }
-
-    /* Reset absolute positioning for mobile menu */
+    .hamburger {
+        display: block;
+    }
+    /* Reset absolute positioning for mobile */
     .nav-menu {
         position: static;
         left: auto;
@@ -1013,8 +1046,6 @@ footer {
     .instagram-badge a {
         justify-content: center;
     }
-
-    /* Adjust hero spacing to accommodate visible navbar */
     .hero {
         margin-top: 70px;
         min-height: calc(90vh - 70px);

@@ -1,4 +1,4 @@
-// script.js - Fixed version for CV Transformation website
+// script.js
 
 // Initialize AOS
 AOS.init({
@@ -19,12 +19,10 @@ function closeMenu() {
     navMenu.classList.remove('show');
 }
 
-if (hamburger) {
-    hamburger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu();
-    });
-}
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+});
 
 // Close menu when link clicked
 document.querySelectorAll('.nav-menu a').forEach(link => {
@@ -35,17 +33,15 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 
 // Close menu when clicking outside
 document.addEventListener('click', (e) => {
-    if (navMenu && !e.target.closest('.nav-container') && navMenu.classList.contains('show')) {
+    if (!e.target.closest('.nav-container') && navMenu.classList.contains('show')) {
         closeMenu();
     }
 });
 
 // Prevent closing when clicking inside menu
-if (navMenu) {
-    navMenu.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
-}
+navMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
 
 // Active link highlight on scroll
 window.addEventListener('scroll', () => {
@@ -65,65 +61,42 @@ window.addEventListener('scroll', () => {
 
     // Scroll to top button visibility
     const scrollBtn = document.getElementById('scrollTop');
-    if (scrollBtn) {
-        if (window.scrollY > 500) {
-            scrollBtn.classList.add('show');
-        } else {
-            scrollBtn.classList.remove('show');
-        }
+    if (window.scrollY > 500) {
+        scrollBtn.classList.add('show');
+    } else {
+        scrollBtn.classList.remove('show');
     }
 });
 
 // Scroll to top
-const scrollTopBtn = document.getElementById('scrollTop');
-if (scrollTopBtn) {
-    scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
+document.getElementById('scrollTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
+});
 // Refresh AOS after page load
 window.addEventListener("load", () => {
     AOS.refresh();
 });
 
 // BMI Calculator
-const calcBtn = document.getElementById('calculateBmi');
-if (calcBtn) {
-    calcBtn.addEventListener('click', () => {
-        const heightInput = document.getElementById('height');
-        const weightInput = document.getElementById('weight');
-        const height = parseFloat(heightInput.value);
-        const weight = parseFloat(weightInput.value);
-        const resultSpan = document.querySelector('#bmiResult span');
+document.getElementById('calculateBmi').addEventListener('click', () => {
+    const height = parseFloat(document.getElementById('height').value) / 100; // cm to m
+    const weight = parseFloat(document.getElementById('weight').value);
+    if (height > 0 && weight > 0) {
+        const bmi = (weight / (height * height)).toFixed(1);
+        document.querySelector('#bmiResult span').textContent = bmi;
+    } else {
+        alert('Please enter valid height and weight');
+    }
+});
 
-        if (height > 0 && weight > 0) {
-            const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
-            resultSpan.textContent = bmi;
-        } else {
-            alert('Please enter valid height and weight');
-            resultSpan.textContent = '--';
-        }
-    });
-}
-
-// Contact form submission (fixed: removed trainingPlan check)
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        // Get form values (optional)
-        const name = contactForm.querySelector('input[placeholder="Full Name"]')?.value || '';
-        const email = contactForm.querySelector('input[placeholder="Email Address"]')?.value || '';
-        const phone = contactForm.querySelector('input[placeholder="Phone Number"]')?.value || '';
-        const message = contactForm.querySelector('textarea')?.value || '';
-        
-        if (!name || !email) {
-            alert('Please fill in your name and email address.');
-            return;
-        }
-        
-        alert(`Thank you ${name}! Our coach will contact you soon. (Demo)`);
-        contactForm.reset(); // optional reset
-    });
-}
+// Contact form demo with training plan validation
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const selected = document.querySelector('input[name="trainingPlan"]:checked');
+    if (!selected) {
+        alert('Please select a training plan.');
+        return;
+    }
+    alert(`Thank you! You selected ${selected.value}. A coach will contact you soon. (demo)`);
+});

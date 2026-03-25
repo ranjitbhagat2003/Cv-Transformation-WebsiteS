@@ -1,102 +1,610 @@
-// script.js
 
-// Initialize AOS
-AOS.init({
-    once: true,
-    offset: 60,
-    duration: 800
-});
-
-// Mobile menu toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-function toggleMenu() {
-    navMenu.classList.toggle('show');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-function closeMenu() {
-    navMenu.classList.remove('show');
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-hamburger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleMenu();
-});
+h1, h2, h3, h4, .logo-text, .brand, .price {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
 
-// Close menu when link clicked
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        closeMenu();
-    });
-});
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav-container') && navMenu.classList.contains('show')) {
-        closeMenu();
-    }
-});
+section {
+  padding: 80px 0;
+}
 
-// Prevent closing when clicking inside menu
-navMenu.addEventListener('click', (e) => {
-    e.stopPropagation();
-});
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+  .container {
+    padding: 0 20px;
+  }
+}
 
-// Active link highlight on scroll
-window.addEventListener('scroll', () => {
-    let sections = document.querySelectorAll('section');
-    let scrollPos = window.scrollY + 100; // offset for fixed header
-    sections.forEach(section => {
-        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-            let currentId = section.getAttribute('id');
-            document.querySelectorAll('.nav-menu a').forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href') === '#' + currentId) {
-                    a.classList.add('active');
-                }
-            });
-        }
-    });
+/* =========================================
+   BUTTONS
+========================================= */
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #e63946, #c92a2f);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+}
 
-    // Scroll to top button visibility
-    const scrollBtn = document.getElementById('scrollTop');
-    if (window.scrollY > 500) {
-        scrollBtn.classList.add('show');
-    } else {
-        scrollBtn.classList.remove('show');
-    }
-});
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(230, 57, 70, 0.5);
+  background: linear-gradient(135deg, #c92a2f, #e63946);
+}
 
-// Scroll to top
-document.getElementById('scrollTop').addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+/* =========================================
+   NAVBAR
+========================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(230, 57, 70, 0.3);
+}
 
-});
-// Refresh AOS after page load
-window.addEventListener("load", () => {
-    AOS.refresh();
-});
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-// BMI Calculator
-document.getElementById('calculateBmi').addEventListener('click', () => {
-    const height = parseFloat(document.getElementById('height').value) / 100; // cm to m
-    const weight = parseFloat(document.getElementById('weight').value);
-    if (height > 0 && weight > 0) {
-        const bmi = (weight / (height * height)).toFixed(1);
-        document.querySelector('#bmiResult span').textContent = bmi;
-    } else {
-        alert('Please enter valid height and weight');
-    }
-});
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-// Contact form demo with training plan validation
-document.getElementById('contactForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const selected = document.querySelector('input[name="trainingPlan"]:checked');
-    if (!selected) {
-        alert('Please select a training plan.');
-        return;
-    }
-    alert(`Thank you! You selected ${selected.value}. A coach will contact you soon. (demo)`);
-});
+.logo i {
+  font-size: 32px;
+  color: #e63946;
+}
+
+.logo-text .brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.logo-text .tagline {
+  font-size: 0.7rem;
+  color: #e63946;
+  letter-spacing: 1px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: #eee;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #e63946;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 992px) {
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background: #0f0f0f;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    transition: 0.4s;
+    gap: 30px;
+    border-right: 1px solid #e63946;
+    z-index: 999;
+  }
+  .nav-menu.show {
+    left: 0;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), 
+              url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover fixed;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+  color: #e63946;
+}
+
+.hero-content p {
+  max-width: 650px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* =========================================
+   STATS SECTION
+========================================= */
+.stats-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.stat-item {
+  background: #111;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  flex: 1;
+  border-bottom: 3px solid #e63946;
+  transition: 0.3s;
+}
+
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #e63946;
+}
+
+/* =========================================
+   BMI CALCULATOR
+========================================= */
+.bmi-card {
+  background: #111;
+  padding: 30px;
+  border-radius: 28px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bmi-input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.bmi-input-group input {
+  width: 100%;
+  padding: 12px;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 12px;
+  color: white;
+  margin-top: 8px;
+  font-family: inherit;
+}
+
+.bmi-result {
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* =========================================
+   WHY CHOOSE US & EXPERIENCE
+========================================= */
+.why-grid,
+.experience-grid {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.why-content,
+.experience-content {
+  flex: 1;
+}
+
+.why-image,
+.experience-image {
+  flex: 1;
+  text-align: center;
+  font-size: 8rem;
+  color: #e63946;
+}
+
+.why-list,
+.experience-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.why-list li,
+.experience-list li {
+  margin: 12px 0;
+}
+
+.why-list i,
+.experience-list i {
+  color: #e63946;
+  margin-right: 12px;
+}
+
+@media (max-width: 768px) {
+  .why-grid,
+  .experience-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+  .why-list,
+  .experience-list {
+    text-align: left;
+  }
+}
+
+/* =========================================
+   STEPS, CLASSES, TRAINERS, TESTIMONIALS, PRICING
+========================================= */
+.steps-grid,
+.classes-grid,
+.trainers-grid,
+.testimonials-grid,
+.pricing-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.step-card,
+.class-card,
+.trainer-card,
+.testimonial-card,
+.pricing-card {
+  background: #111;
+  border-radius: 24px;
+  overflow: hidden;
+  flex: 1;
+  transition: 0.3s;
+  padding: 24px;
+  text-align: center;
+}
+
+.class-card img,
+.trainer-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.class-card h4,
+.trainer-card h4 {
+  margin-top: 15px;
+}
+
+.testimonial-card i {
+  font-size: 2rem;
+  color: #e63946;
+  margin-bottom: 15px;
+}
+
+.testimonial-card p {
+  font-style: italic;
+}
+
+.client-name {
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.pricing-card {
+  padding: 30px;
+}
+
+.pricing-card .price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e63946;
+  margin: 20px 0;
+}
+
+.pricing-card ul {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.pricing-card li {
+  margin: 10px 0;
+}
+
+/* =========================================
+   TIMETABLE
+========================================= */
+.timetable {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #111;
+  border-radius: 24px;
+}
+
+th, td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #222;
+}
+
+th {
+  background: #e63946;
+  color: white;
+}
+
+/* =========================================
+   PUSH LIMIT BANNER
+========================================= */
+.push-limit {
+  background: linear-gradient(135deg, #e63946, #b91c2c);
+  text-align: center;
+  padding: 60px 0;
+}
+
+.push-limit h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* =========================================
+   TRANSFORMATION HORIZONTAL SCROLL
+========================================= */
+.transform-horizontal {
+  display: flex;
+  overflow-x: auto;
+  gap: 24px;
+  padding-bottom: 20px;
+  scroll-behavior: smooth;
+}
+
+.transform-card {
+  min-width: 280px;
+  background: #111;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.ba-images {
+  display: flex;
+  gap: 5px;
+}
+
+.ba-images img {
+  width: 50%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.transform-info {
+  padding: 16px;
+  text-align: center;
+}
+
+/* =========================================
+   CONTACT FORM
+========================================= */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #111;
+  padding: 40px;
+  border-radius: 32px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 14px;
+  color: white;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+footer {
+  background: #050505;
+  padding: 40px 0 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.footer-logo .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo .logo i {
+  font-size: 28px;
+  color: #e63946;
+}
+
+.footer-logo .logo span {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.footer-social a {
+  color: white;
+  font-size: 1.8rem;
+  margin: 0 15px;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  color: #e63946;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   SCROLL TO TOP BUTTON
+========================================= */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #e63946;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top i {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* =========================================
+   UTILITIES & ANIMATIONS
+========================================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e63946;
+  border-radius: 10px;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure AOS animations don't break layout */
+[data-aos] {
+  pointer-events: none;
+}
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
